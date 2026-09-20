@@ -66,7 +66,7 @@ reach for triads to sound thorough. Use two, or four, or one — whatever the
 content actually supports. Same for numbered lists: don't default to a tidy
 three-part structure unless three things genuinely exist.
 
-**Announced transitions.** "Let's explore how…", "What this means in practice:",
+**Announced transitions.** "Let's explore how...", "What this means in practice:",
 "Here's the thing:" Delete the announcement and state the point. The reader
 knows they're still reading.
 
@@ -75,6 +75,33 @@ knows they're still reading.
 
 **Vague attribution.** "Experts agree", "studies show", "it is widely
 considered". Either name the source or cut the claim.
+
+**Trailing benefit clauses.** The participial phrase bolted onto the end of a
+sentence to add an upside: "..., ensuring seamless integration", "..., allowing
+teams to move faster", "..., making it easier to scale". This is one of the
+loudest tells there is, and drafts are usually thick with it. The clause almost
+never carries real information — it restates the sentence as a benefit. Cut it,
+or promote it to its own sentence with a subject that does something.
+
+**Colon splices.** "The result: faster builds." "One catch: it needs Postgres
+14." Models use a colon to skip writing a verb. One of these in a piece is a
+nice beat. Four is a rhythm the reader starts hearing.
+
+**Both-sides hedging.** "While X offers real benefits, it also presents
+challenges." The sentence weighs two things and lands on neither. Pick the
+claim you actually believe and make it.
+
+**Range padding.** "From startups to enterprises", "from design to deployment",
+"whether you're a beginner or an expert". These gesture at completeness without
+naming anything. Name the two real endpoints or cut the construction.
+
+**Rhetorical question openers.** "So what does this actually mean?" "Why does
+this matter?" The question is fake — the writer already knows. Answer it
+without asking it.
+
+**Corporate "we".** A plural that has no referent: "we believe", "we've seen
+teams struggle". Fine when a real team is speaking. A tell when it's a single
+author hiding behind a committee.
 
 **Summary paragraphs that restate.** The last paragraph that says what the
 previous paragraphs said. End on the strongest concrete point instead.
@@ -136,8 +163,26 @@ deploy hung." This is a deliberate texture choice, not standard punctuation — 
 makes the prose read faster and looser, closer to speech. Keep the comma when
 the clauses are long enough that dropping it garbles the sentence.
 
+**Semicolons.** Models reach for them where a human writes a period. A
+semicolon says the two halves are one thought; earn it or split the sentence.
+Roughly one per page is plenty.
+
+**Typographic artifacts.** Curly quotes, curly apostrophes, the single-character
+ellipsis, and non-breaking spaces get pasted straight out of model output and
+mark it instantly in any plain-text destination. Use straight quotes, a straight
+apostrophe, and three periods. An en dash in a number range (6-20, 2019-2024) is
+normal typography and can stay.
+
+**Arrows and symbols in prose.** Writing an arrow instead of a word is a slide-
+deck habit. Use the word.
+
 **Bold and headers.** Models bold for emphasis reflexively. Bold a phrase only
 when a scanner needs to find it. Don't bold a whole sentence.
+
+Header names give a draft away as fast as any word does. "Key Takeaways",
+"Final Thoughts", "Challenges and Opportunities", "The Road Ahead" and Every
+Header In Title Case are stock furniture. Name the section after what's in it,
+in sentence case.
 
 **Lists.** A list is right when the items are genuinely parallel and the reader
 will scan for one. It's wrong when it's just prose with the connective tissue
@@ -201,6 +246,11 @@ Read it as the intended reader, not as the editor. Then check:
   break one and stretch another.
 - Search your own output for the banned list. Models reintroduce them while
   fixing something else.
+- Search for ", ensuring", ", allowing", ", making it" and any other comma plus
+  "-ing" that adds a benefit. That construction survives rewrites more than
+  anything else on this page.
+- Scan for curly quotes, curly apostrophes and the ellipsis character. They
+  travel invisibly through a rewrite and land in the paste.
 - Would a thoughtful person say this out loud to a colleague? If a sentence
   would sound absurd spoken, it's still machine prose.
 - Is any claim in your version absent from the source? Remove it.

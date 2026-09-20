@@ -82,6 +82,22 @@ Cut these whole. They add length and no information.
 - "Here's the thing:"
 - "Trust me" / "Believe it or not"
 - "In the world of X" openers
+- "Think of it like..." as an analogy preamble
+- "The short answer is" / "The long answer is"
+- "Gone are the days when"
+- "More than ever before"
+- "Countless" (as a stand-in for a number you don't have)
+
+### Stock section headers
+
+Rename these. They're furniture, not headings:
+
+"Key Takeaways", "Final Thoughts", "Wrapping Up", "The Bottom Line",
+"Challenges and Opportunities", "Benefits and Drawbacks", "The Road Ahead",
+"What's Next", "Getting Started" (when nothing starts), "Understanding X",
+"Why X Matters", "A Deeper Look".
+
+Also drop Title Case. Sentence case reads like a person wrote it.
 
 ## 3. Sentence-shape repairs
 
@@ -110,6 +126,30 @@ After: *The registry is the only place constraints live.*
 **Vague attribution.**
 Before: *Studies show that shorter sentences improve comprehension.*
 After: *Cut the sentence in half and people read it faster.* (or cite the study)
+
+**Trailing benefit clause.**
+Before: *The kernel validates each transaction before commit, ensuring data
+integrity and allowing teams to move quickly.*
+After: *The kernel validates each transaction before commit. Nothing bad gets in,
+so nobody has to review the graph by hand later.*
+
+**Colon splice pile-up.**
+Before: *The problem: latency. The cause: retries. The fix: a circuit breaker.*
+After: *Latency was the problem and retries were causing it, so we put a circuit
+breaker in front.*
+
+**Both-sides hedge.**
+Before: *While microservices offer scalability benefits, they also introduce
+operational complexity.*
+After: *Microservices will scale and they'll cost you an on-call rotation.*
+
+**Range padding.**
+Before: *Used by everyone from indie developers to Fortune 500 enterprises.*
+After: *Used by a two-person shop in Lisbon and by Cisco.*
+
+**Rhetorical question opener.**
+Before: *So why does any of this matter? Because latency compounds.*
+After: *Latency compounds.*
 
 **Restating summary.**
 Before: *As we've seen, the three factors above all contribute to the outcome.*
@@ -211,6 +251,7 @@ The durable signals are structural, and they're the ones worth internalizing:
 - Every paragraph the same size
 - Claims pitched at a level of abstraction where nothing can be checked
 - A tone that's evenly enthusiastic about everything and commits to nothing
+- Every sentence ending in a clause that explains why the sentence was good news
 
 If you only fix one thing in a draft, fix the rhythm. A page with real variation
 in sentence length reads human even when a few suspect words survive. A page of
