@@ -257,14 +257,20 @@ update. Read the one closest to what you're rewriting.
 **Em dashes. Default to not using one.** Reach for a period, a colon, a comma
 or a pair of parentheses instead. The sentence almost always improves.
 
-The honest version of the evidence: em dashes are not statistically a machine
-trait. GPT-4.1 runs about 10.6 per thousand words. Twain ran 10.1 in Huck Finn.
-The mark is innocent.
+The numbers support this, though the popular version of them does not. A 2026
+preprint measured GPT-4.1 at 10.62 em dashes per thousand words against a modern
+human control of 3.23, drawn from eight published essays over 57,232 words.
+Models run roughly three times the rate of contemporary human prose.
 
-It doesn't matter. Enough readers now treat the em dash as proof a model wrote
-the text that the perception is the problem, whatever the counts say. Editors
-strip them from client work for exactly this reason. You're writing for those
-readers, so write without it.
+The widely repeated comparison to Twain, who ran about 10.1 in Huck Finn, is
+cherry-picked. It sets a dash-heavy nineteenth-century novelist as the baseline
+when the pooled literary average in that same source is 6.43. Don't repeat that
+comparison. It's the kind of argument that collapses the moment a reader checks
+it, and it takes the rest of your credibility with it.
+
+Perception does the rest of the work. Enough readers now treat the em dash as
+proof a model wrote the text that it reads as a signature whatever the counts
+say, and editors strip them from client work for exactly that reason.
 
 There's a real craft difference underneath the perception, and it explains why
 so many model em dashes read badly. A person uses one to interrupt themselves,

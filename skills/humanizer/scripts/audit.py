@@ -27,8 +27,24 @@ HARD = {"banned_words", "em_dashes", "oxford_commas", "typographic_artifacts",
 
 # ---------------------------------------------------------------- parsing
 
-def banned_words(skill_md=SKILL):
-    """Pull the ban list out of the 'Cut these words' section of SKILL.md."""
+# Real technical uses of words that are slop everywhere else. A checker that
+# rejects "dynamic programming" or "test harness" gets switched off, and a
+# checker nobody runs is worth nothing.
+COLLOCATIONS = [
+    "dynamic programming", "dynamic typing", "dynamic range", "dynamic import",
+    "dynamic linking", "test harness", "wiring harness", "cable harness",
+    "landscape orientation", "robust statistics", "robust regression",
+]
+
+
+def banned_words(skill_md=SKILL, tier="all"):
+    """Pull the ban list out of 'Cut these words' in SKILL.md, keeping its tiers.
+
+    The section has three paragraphs and the distinction between them matters.
+    The first is never-ship vocabulary and the third is pure filler, so both
+    gate. The second is the softer tier, where the word is sometimes the right
+    one, so it reports without failing --strict.
+    """
     try:
         text = skill_md.read_text(encoding="utf-8")
     except OSError:
@@ -37,22 +53,48 @@ def banned_words(skill_md=SKILL):
     if not m:
         return []
 
-    words = set()
+    tiers = []
     for para in m.group(1).split("\n\n"):
         para = " ".join(para.split())
         if not para or para.startswith(("`", "-", "|", "**")):
             continue
-        # The lists follow a lead-in ending in a colon; keep what comes after.
+        softer = para.lower().startswith("also drop the softer tier")
         if ":" in para:
             para = para.split(":", 1)[1]
-        para = re.sub(r"\([^)]*\)", " ", para)          # drop "(figurative)" notes
+        para = re.sub(r"\([^)]*\)", " ", para)
+        words = set()
         for chunk in re.split(r"[,.]", para):
             chunk = chunk.strip().strip('"\u201c\u201d').lower()
-            if not chunk or len(chunk) > 30 or len(chunk.split()) > 5:
+            if not chunk or len(chunk) > 40 or len(chunk.split()) > 7:
                 continue
             if re.fullmatch(r"[a-z][a-z '-]*", chunk):
                 words.add(chunk)
-    return sorted(words)
+        if words:
+            tiers.append(("soft" if softer else "hard", words))
+
+    hard = sorted(set().union(*[w for t, w in tiers if t == "hard"]) if tiers else set())
+    soft = sorted(set().union(*[w for t, w in tiers if t == "soft"]) if tiers else set())
+    soft = [w for w in soft if w not in hard]
+    if tier == "hard":
+        return hard
+    if tier == "soft":
+        return soft
+    return sorted(set(hard) | set(soft))
+
+
+def count_banned(body_low, words):
+    """Count banned terms, skipping ones inside a legitimate technical phrase."""
+    found = {}
+    for w in words:
+        n = len(re.findall(r"\b" + re.escape(w) + r"\w{0,3}\b", body_low))
+        if not n:
+            continue
+        for phrase in COLLOCATIONS:
+            if w in phrase:
+                n -= body_low.count(phrase)
+        if n > 0:
+            found[w] = n
+    return found
 
 
 def sentences(text):
@@ -85,10 +127,20 @@ TRAILING_ING = re.compile(r",\s+(?:ensuring|allowing|making|enabling|providing|"
                           r"helping|creating|offering|delivering|driving)\b", re.I)
 NEGATION_TRAP = re.compile(r"\b(?:not just|isn't just|it's not|it isn't|rather than just)\b"
                            r"[^.!?]{0,60}\b(?:but|it's)\b", re.I)
-OXFORD = re.compile(r"\w+,\s+\w[\w\s]*?,\s+(?:and|or)\s+\w")
-COMMA_SPLICE = re.compile(r"[a-z]{2,},\s+(?:it|he|she|they|we|you|that|this|there)\s+"
-                          r"(?:is|are|was|were|has|have|had|will|would|can|could|"
-                          r"did|does|do|'s|'re|'ll|'ve)\b")
+OXFORD = re.compile(r"\w+,\s+(\w[\w\s]*?),\s+(?:and|or)\s+\w")
+# A middle segment opening with a determiner is an appositive, not a list item.
+DETERMINER = re.compile(r"^(?:the|a|an|my|our|your|his|her|its|their)\b", re.I)
+
+
+def oxford_commas(body):
+    return sum(1 for m in OXFORD.finditer(body) if not DETERMINER.match(m.group(1)))
+SUBJECT = r"(?:it|he|she|they|we|you|i|there|this|that)"
+# After a subject pronoun the next word is normally the verb, so a comma
+# followed by pronoun + word is a splice. The exclusions are the cases where
+# the pronoun is not starting a new clause.
+NOT_A_VERB = {"and", "or", "but", "nor", "so", "yet", "who", "which", "that",
+              "whom", "whose", "too", "also", "as", "then", "either", "neither"}
+COMMA_SPLICE = re.compile(r",\s+" + SUBJECT + r"\s+([a-z']+)(\s*,)?", re.I)
 # A sentence opening with one of these has a leading dependent clause, so the
 # comma is doing its job rather than splicing two independent statements.
 SUBORDINATOR = re.compile(
@@ -98,8 +150,20 @@ SUBORDINATOR = re.compile(
 
 
 def comma_splices(sents):
-    return sum(1 for s in sents
-               if not SUBORDINATOR.match(s) and COMMA_SPLICE.search(s))
+    n = 0
+    for sent in sents:
+        if SUBORDINATOR.match(sent):
+            continue
+        for m in COMMA_SPLICE.finditer(sent):
+            word, trailing_comma = m.group(1).lower(), m.group(2)
+            # ", they say," is a parenthetical, not a splice.
+            if trailing_comma:
+                continue
+            if word in NOT_A_VERB:
+                continue
+            n += 1
+            break
+    return n
 ARTIFACTS = {"curly apostrophe": "’", "curly quote": "“",
              "curly quote close": "”", "ellipsis char": "…",
              "non-breaking space": " "}
@@ -118,11 +182,9 @@ def analyse(text, bans):
     words = len(body.split())
     low = body.lower()
 
-    found = {}
-    for w in bans:
-        n = len(re.findall(r"\b" + re.escape(w) + r"\w{0,3}\b", low))
-        if n:
-            found[w] = n
+    hard_list = banned_words(tier="hard")
+    found = count_banned(low, [w for w in bans if w in hard_list])
+    found_soft = count_banned(low, [w for w in bans if w not in hard_list])
 
     arts = {name: body.count(ch) for name, ch in ARTIFACTS.items() if ch in body}
     hedge_hits = {h: low.count(h) for h in HEDGES if h in low}
@@ -140,8 +202,9 @@ def analyse(text, bans):
         "lengths": lens,
         "para_lengths": [len(sentences(p)) for p in paragraphs(text)],
         "banned_words": found,
+        "softer_tier": found_soft,
         "em_dashes": body.count("—"),
-        "oxford_commas": len(OXFORD.findall(body)),
+        "oxford_commas": oxford_commas(body),
         "comma_splices": comma_splices(sents),
         "commas_over_budget": sum(1 for c in commas_per if c >= 3),
         "max_commas_in_sentence": max(commas_per) if commas_per else 0,
@@ -248,6 +311,7 @@ def report(after, before=None):
         ("negation traps", after["negation_traps"], "'not just X, but Y'"),
         ("passive constructions", after["passive"], "prefer active"),
         ("semicolons", after["semicolons"], "one per page is plenty"),
+        ("softer-tier words", sum(after["softer_tier"].values()), "sometimes the right word"),
         ("hedging phrases", sum(after["hedges"].values()), "filler"),
         ("stock headers", len(after["stock_headers"]), "rename them"),
         ("exclamation marks", after["exclamations"], "default off"),
@@ -255,6 +319,9 @@ def report(after, before=None):
     for label, n, note in soft:
         flag = "   " if n == 0 else " ->"
         w("%s %-26s %-4d %s" % (flag, label, n, note if n else ""))
+    if after["softer_tier"]:
+        w("    softer tier: %s" % ", ".join(
+            "%s x%d" % (k, v) for k, v in sorted(after["softer_tier"].items())))
     if after["hedges"]:
         w("    hedges: %s" % ", ".join(sorted(after["hedges"])))
     if after["stock_headers"]:
