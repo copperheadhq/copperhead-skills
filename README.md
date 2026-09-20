@@ -12,7 +12,7 @@ and pulls the rest in when the task matches.
 
 | Skill | What it does |
 | --- | --- |
-| [humanizer](skills/humanizer/) | Rewrites prose so it stops reading like a machine wrote it. Kills the stock vocabulary, the negation traps and the rule-of-three padding, then puts real rhythm back. |
+| [humanizer](skills/humanizer/) | Rewrites prose so it stops reading like a machine wrote it. Three passes: cut the stock vocabulary and the stock shapes, put the rhythm back, then add the small human moves that make a page feel written rather than generated. |
 
 ## Install
 

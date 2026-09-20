@@ -13,6 +13,11 @@ The work is subtractive first. Most machine prose isn't wrong, it's padded,
 evenly weighted, and scared of committing to anything. Strip that out and a
 human voice is usually already sitting underneath.
 
+Three passes, in order. Cut the machine out - the stock words and the stock
+shapes. Put the rhythm back, because even prose cut clean reads flat. Then
+sprinkle, lightly, to get a person into it. Doing the third pass before the
+first two is how you end up with slop wearing a personality.
+
 ## Read the destination first
 
 Voice is not one setting. A README intro, a cold email, and a Substack essay
@@ -150,6 +155,100 @@ long word replaces a short one that meant the same thing.
 carries a lot. Five is a cry for help. The test: does the comparison make the
 idea clearer, or just more decorated?
 
+## The sprinkles
+
+Cutting the machine out leaves prose that's clean and a bit anonymous. The
+third pass puts a person in it.
+
+Go light. The ceiling on this is low and the floor is a trapdoor: prose that's
+trying to sound human reads worse than prose that's merely plain, because the
+effort shows. When in doubt, add one sprinkle and stop.
+
+**Specifics with no job to do.** A Tuesday. The 4:15. Priya. The second-floor
+printer. Detail that isn't load-bearing is the strongest human signal there is,
+because a machine generalizes and a person remembers. Mine the source for these
+and promote them — never invent one.
+
+**Admit what you don't know.** "We never found the root cause." "Probably the
+DNS change, but I can't prove it." Models are evenly confident about
+everything. A real writer has a ragged edge of uncertainty and says so.
+
+**Take a side.** "This is the wrong default." "I'd skip it." Flat neutrality
+across every claim is a machine trait. If the source has an opinion in it, let
+it land without the cushion.
+
+**Concede something real.** A trade-off that costs the argument something:
+"it'll scale and it'll cost you an on-call rotation." Fake balance hedges.
+Real concession commits and then pays for it.
+
+**Name the reader's objection in their words.** "Yes, you could just use cron."
+It shows you know who's reading, and it's the move a person makes in
+conversation without thinking about it.
+
+**Deliberate fragments.** Short. Placed where the rhythm wants a stop. They
+work because they break the grammar the rest of the paragraph is obeying, so
+don't let them become the new pattern.
+
+**Open with And, But or So.** A conversational hinge. Once or twice a page.
+
+**Understatement.** "Which went about as well as you'd expect." Dry beats
+jokey, and it survives a serious register that a joke wouldn't.
+
+**Land on the strong word.** English puts stress at the end of a sentence.
+"We lost three days to a timestamp" hits harder than "a timestamp cost us three
+days." When a sentence feels limp, check what's sitting in the last position.
+
+**A callback.** Reuse an image from earlier in the piece, once, near the end.
+It makes the writing feel like one mind held the whole thing, which is exactly
+the thing a machine doesn't do.
+
+**Shift formality mid-paragraph.** A blunt word dropped into a measured
+sentence creates texture: "The migration is done. The old cluster can rot."
+
+### Dosage
+
+Per roughly 500 words, a ceiling that's hard to exceed without it showing:
+
+| Move | Ceiling |
+| --- | --- |
+| Fresh analogy or metaphor | 1 |
+| Deliberate fragment | 2 |
+| And/But/So opener | 2 |
+| Aside in parentheses | 1 |
+| Joke or understatement | 1 |
+| Callback | 1 per piece, not per page |
+| Specific concrete detail | no ceiling, keep going |
+
+The last row is the point. Every other move is seasoning and can be overdone.
+Specificity can't.
+
+### Sprinkles that backfire
+
+These are what "humanized" text looks like when someone applied the idea
+mechanically, and they read worse than no sprinkles at all:
+
+Forced folksiness - "Here's the thing." "Let that sink in." "Buckle up."
+Fake vulnerability - "I'll be honest with you." "Real talk."
+Hedging worn as personality - "kinda", "sorta", "I guess" scattered everywhere.
+Quirk stacking - an aside, an idiom, a fragment and a joke inside one paragraph.
+Performative lowercase, emoji, "lol" in writing that isn't a text message.
+Deliberate typos or sloppy grammar to look unpolished. Never do this. It's a lie
+about the artifact and any careful reader clocks it as one.
+
+Manufactured anecdotes are the worst of them and they get their own rule below:
+invented detail is not a sprinkle, it's a fabrication.
+
+### The best sprinkles are the writer's own
+
+If you have earlier writing from this person - other posts, the rest of the
+thread, their messages in the draft itself - read it before rewriting and copy
+their actual tics. The way they open. Whether they swear. Whether they use
+semicolons. A real habit lifted from their prose beats every generic move on
+this page, because it's theirs and the reader who knows them will feel it.
+
+`references/sprinkles.md` has each move worked as a before/after if you want to
+see one land.
+
 ## Punctuation and formatting
 
 **Em dashes.** The tell isn't frequency, it's function. Humans use them for a
@@ -254,3 +353,7 @@ Read it as the intended reader, not as the editor. Then check:
 - Would a thoughtful person say this out loud to a colleague? If a sentence
   would sound absurd spoken, it's still machine prose.
 - Is any claim in your version absent from the source? Remove it.
+- Count the sprinkles in any 500-word stretch against the dosage table. Over
+  budget reads as trying too hard, which is its own tell.
+- Check that every concrete detail you added traces back to the source. If you
+  can't point at where it came from, you invented it.
