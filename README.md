@@ -4,7 +4,7 @@ Agent skills for Claude Code, kept in one place so they're versioned, reviewable
 and shared across machines instead of living loose in `~/.claude/skills/`.
 
 A skill is a folder with a `SKILL.md` in it. The frontmatter says when Claude
-should reach for it, the body says what to do, and anything under `references/`
+should reach for it, the body says what to do and anything under `references/`
 loads only when it's actually needed. Claude reads the description on every turn
 and pulls the rest in when the task matches.
 
@@ -63,12 +63,12 @@ description: What it does, then the contexts that should trigger it.
 Two things worth getting right:
 
 **The description is the whole triggering mechanism.** Claude decides whether to
-open a skill from that one field, and it under-triggers by default. List the
+open a skill from that one field. It under-triggers by default. List the
 phrasings a user would actually type, including the ones that never name the
 skill. Say where it shouldn't fire, too.
 
 **Keep `SKILL.md` under about 500 lines.** It loads in full whenever the skill
-fires, so the long tables, the exhaustive lists and the worked examples belong in
+fires. The long tables, the exhaustive lists and the worked examples belong in
 `references/` with a line in the body saying when to go read them.
 
 ## License

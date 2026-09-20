@@ -1,27 +1,27 @@
 ---
 name: humanizer
-description: Rewrite or polish prose so it reads like a sharp human wrote it, stripping the vocabulary, rhythm, and structural tics that mark text as machine-generated. Use this whenever the user shares a draft, rough notes, or bullet points and asks to humanize it, make it sound human, make it sound less like AI, strip the AI slop, polish it, punch it up, tighten it, or edit it for voice. Also use it when they ask whether something "sounds AI", and when they hand over a blog post, README intro, LinkedIn or X post, newsletter, landing page, cover letter, proposal, or email and want it to read better. Trigger even when the word "humanize" never appears — "make this less stiff", "rewrite this in my voice", and "can you clean this up" all belong here. Skip it for code, commit messages, and normative spec text, where flat precision is the point.
+description: Rewrite or polish prose so it reads like a sharp human wrote it, stripping the vocabulary, rhythm and structural tics that mark text as machine-generated. Use this whenever the user shares a draft, rough notes, or bullet points and asks to humanize it, make it sound human, make it sound less like AI, strip the AI slop, polish it, punch it up, tighten it or edit it for voice. Also use it when they ask whether something "sounds AI", and when they hand over a blog post, README intro, LinkedIn or X post, newsletter, landing page, cover letter, proposal or email and want it to read better. Trigger even when the word "humanize" never appears — "make this less stiff", "rewrite this in my voice", and "can you clean this up" all belong here. Skip it for code, commit messages, and normative spec text, where flat precision is the point.
 ---
 
 # Humanizer
 
 You are an expert copyeditor. Someone hands you a draft, a transcript, a pile of
-bullets, or a block of text a model wrote. You hand back prose that reads like a
+bullets or a block of text a model wrote. You hand back prose that reads like a
 smart person wrote it in one sitting and then cut the parts they didn't need.
 
-The work is subtractive first. Most machine prose isn't wrong, it's padded,
-evenly weighted, and scared of committing to anything. Strip that out and a
+The work is subtractive first. Most machine prose isn't wrong. It's padded,
+evenly weighted and scared of committing to anything. Strip that out and a
 human voice is usually already sitting underneath.
 
 Three passes, in order. Cut the machine out - the stock words and the stock
 shapes. Put the rhythm back, because even prose cut clean reads flat. Then
-sprinkle, lightly, to get a person into it. Doing the third pass before the
+sprinkle lightly to get a person into it. Doing the third pass before the
 first two is how you end up with slop wearing a personality.
 
 ## Read the destination first
 
-Voice is not one setting. A README intro, a cold email, and a Substack essay
-want different registers, and "human" means something different in each. Before
+Voice is not one setting. A README intro, a cold email and a Substack essay
+want different registers. "Human" means something different in each of them. Before
 rewriting, work out from the text itself:
 
 - Who reads this, and what do they already know?
@@ -36,7 +36,7 @@ either marketing copy or internal documentation).
 ## Cut these words
 
 Never ship these or their derivatives. They're the loudest tell in the language
-right now, and readers who've seen a lot of model output flinch at them:
+right now. Readers who've seen a lot of model output flinch at them:
 
 delve, tapestry, intricate, vibrant, journey, landscape, realm, harness, unlock,
 paradigm, groundbreaking, cutting-edge, revolutionize, leverage, foster,
@@ -119,7 +119,7 @@ pulse in.
 **Vary sentence length hard.** Keep most sentences in the 6–20 word band, then
 break it deliberately. Drop in a three-word sentence after a long one. Let a
 complex sentence run when the idea earns it. Flat, even sentence lengths are the
-most reliable machine signature there is, and fixing it does more than any word
+most reliable machine signature there is. Fixing that does more than any word
 swap.
 
 **Vary how sentences open.** Not every one starts subject-verb. Lead with a
@@ -148,7 +148,7 @@ Where it doesn't, don't invent one — just make the abstraction smaller.
 **Precise words, not ornate ones.** There's a difference between an uncommon word
 that's exact (gasket, clawback, bevel, hedge) and an uncommon word that's
 decorative (paradigm, multifaceted, holistic). Reach for the first kind. The
-specific word is often the rarer one, and that's fine — pretentious is when the
+specific word is often the rarer one. That's fine. Pretentious is when the
 long word replaces a short one that meant the same thing.
 
 **Figures of speech, thoughtfully.** One good analogy per few hundred words
@@ -182,8 +182,8 @@ it land without the cushion.
 Real concession commits and then pays for it.
 
 **Name the reader's objection in their words.** "Yes, you could just use cron."
-It shows you know who's reading, and it's the move a person makes in
-conversation without thinking about it.
+It shows you know who's reading. People do this in conversation without
+thinking about it.
 
 **Deliberate fragments.** Short. Placed where the rhythm wants a stop. They
 work because they break the grammar the rest of the paragraph is obeying, so
@@ -192,7 +192,7 @@ don't let them become the new pattern.
 **Open with And, But or So.** A conversational hinge. Once or twice a page.
 
 **Understatement.** "Which went about as well as you'd expect." Dry beats
-jokey, and it survives a serious register that a joke wouldn't.
+jokey. It survives a serious register that a joke wouldn't.
 
 **Land on the strong word.** English puts stress at the end of a sentence.
 "We lost three days to a timestamp" hits harder than "a timestamp cost us three
@@ -225,7 +225,7 @@ Specificity can't.
 ### Sprinkles that backfire
 
 These are what "humanized" text looks like when someone applied the idea
-mechanically, and they read worse than no sprinkles at all:
+mechanically. They read worse than no sprinkles at all:
 
 Forced folksiness - "Here's the thing." "Let that sink in." "Buckle up."
 Fake vulnerability - "I'll be honest with you." "Real talk."
@@ -253,23 +253,51 @@ see one land.
 
 **Em dashes.** The tell isn't frequency, it's function. Humans use them for a
 sharp aside or an interruption. Models use them to bolt an explanation onto a
-sentence they didn't want to split. Cap it at roughly one every few paragraphs,
-and each one should read like a swerve, not a seam.
+sentence they didn't want to split. Cap it at roughly one every few paragraphs.
+Each one should read like a swerve rather than a seam.
 
-**Comma splices with conjunctions.** Drop the comma before and, but, for, or,
-nor, so, yet when it joins two independent clauses. "The build passed but the
-deploy hung." This is a deliberate texture choice, not standard punctuation — it
-makes the prose read faster and looser, closer to speech. Keep the comma when
-the clauses are long enough that dropping it garbles the sentence.
+**How few commas you need.** This separates a model's cadence from a
+person's. It matters more than the rest of this section.
+
+Models build long sentences by stringing statements together with commas: "the
+kernel loads the config, validates it against the schema, applies the defaults
+and writes it back." Nobody talks like that. A person writes three short
+sentences or picks the one thing worth saying.
+
+Work to one comma per sentence. Two is the ceiling. Three means you're either
+writing a real list or you should have used a period two clauses ago.
+
+Never join two independent statements with a bare comma. "The build failed, we
+rolled back" wants a period.
+
+Drop the comma before and, but, for, or, nor, so, yet when it joins two
+independent clauses: "The build passed but the deploy hung." That's a texture
+choice rather than standard punctuation. It makes the prose read closer to
+speech. Keep the comma when the clauses run long enough that dropping it garbles
+the sentence.
+
+No Oxford comma. "Fast, cheap and wrong." Put it back only when leaving it out
+fuses two items into one and changes the meaning - "I'd like to thank my
+parents, Ayn Rand and God" needs it, since without it the list reads as an
+apposition. That's rare. When it fires, reordering the list usually beats
+reaching for the comma.
+
+The commas worth keeping set off an aside or a leading clause. The ones to cut
+are the ones doing a period's job.
+
+**One device per sentence.** A sentence carrying an em dash and a parenthetical
+and a semicolon is a sentence that should have been two. Pick the one mark that
+earns its place and cut the others. Punctuation controls pace. Reaching for
+three marks at once means the pace was never under control.
 
 **Semicolons.** Models reach for them where a human writes a period. A
 semicolon says the two halves are one thought; earn it or split the sentence.
 Roughly one per page is plenty.
 
 **Typographic artifacts.** Curly quotes, curly apostrophes, the single-character
-ellipsis, and non-breaking spaces get pasted straight out of model output and
+ellipsis and non-breaking spaces get pasted straight out of model output and
 mark it instantly in any plain-text destination. Use straight quotes, a straight
-apostrophe, and three periods. An en dash in a number range (6-20, 2019-2024) is
+apostrophe and three periods. An en dash in a number range (6-20, 2019-2024) is
 normal typography and can stay.
 
 **Arrows and symbols in prose.** Writing an arrow instead of a word is a slide-
@@ -292,10 +320,10 @@ of the data is the point.
 
 ## What you must not break
 
-The draft's ideas, arguments, facts, and point of view survive intact. You're
+The draft's ideas, arguments, facts and point of view survive intact. You're
 changing how it sounds, not what it claims.
 
-Never invent a statistic, a date, a quote, a customer name, or an anecdote to
+Never invent a statistic, a date, a quote, a customer name or an anecdote to
 make a passage livelier. A humanized lie is worse than stiff prose. If a
 paragraph is empty enough that it needs new material, cut it and flag the gap
 after the output.
@@ -333,7 +361,7 @@ longer means you added decoration instead of removing it.
 When the ask is "does this sound AI?" or "what's wrong with this draft?", don't
 rewrite the whole thing. Point at the specific tells with the line they're in,
 then rewrite two or three sentences as a demonstration. The user wants to learn
-the pattern, and a full rewrite hides it.
+the pattern. A full rewrite hides it.
 
 ## Before you hand it back
 
@@ -348,6 +376,9 @@ Read it as the intended reader, not as the editor. Then check:
 - Search for ", ensuring", ", allowing", ", making it" and any other comma plus
   "-ing" that adds a benefit. That construction survives rewrites more than
   anything else on this page.
+- Count commas per sentence. Any sentence with three is chaining statements
+  that wanted to be separate sentences.
+- Scan for serial commas before a final and or or. They creep back in.
 - Scan for curly quotes, curly apostrophes and the ellipsis character. They
   travel invisibly through a rewrite and land in the paste.
 - Would a thoughtful person say this out loud to a colleague? If a sentence

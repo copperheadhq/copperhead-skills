@@ -112,11 +112,11 @@ ceremony. It can rot.*
 > longer than I told everyone it would take, and for eight days in the middle I
 > genuinely thought we'd have to roll the whole thing back.
 >
-> We didn't. p99 went from 400ms to 60, and nobody's been paged at night since.
+> We didn't. p99 went from 400ms to 60 and nobody's been paged at night since.
 
 Count what's in the third version: one specific month, two real numbers, one
 admission, one understatement, one fragment-adjacent short sentence to close.
-Five moves across seventy words, and it's already near the ceiling. A sixth
+Five moves across seventy words. That's already near the ceiling. A sixth
 would start to show.
 
 Every number in it would have to come from the source. If the draft doesn't say

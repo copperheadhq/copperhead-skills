@@ -108,12 +108,12 @@ After: *It's a coordination layer that happens to store things.*
 **Parallel frames.**
 Before: *When traffic rises, latency follows. When latency rises, retries follow.
 When retries rise, the system collapses.*
-After: *Traffic rises, latency follows, and the retries pile on until the whole
+After: *Traffic rises, latency follows and the retries pile on until the whole
 thing falls over.*
 
 **Rule of three.**
 Before: *The tool is fast, flexible, and intuitive.*
-After: *The tool is fast, and you can bend it into shapes it wasn't designed for.*
+After: *The tool is fast and you can bend it into shapes it wasn't designed for.*
 
 **Announced transition.**
 Before: *What this means in practice is that teams ship faster.*
@@ -176,15 +176,15 @@ in three services.*
 **After**
 > Fang holds your hardware design as one typed graph and refuses to change it
 > until the change checks out. Every edit goes in as a transaction. The kernel
-> applies it to a copy, runs the gate, and either advances the head or hands you
+> applies it to a copy, runs the gate and either advances the head or hands you
 > back the reason it didn't.
 >
-> That's the whole idea. One model, one place it lives, and no way to move it
+> That's the whole idea. One model, one place it lives and no way to move it
 > sideways.
 
 Notice what survived: the actual mechanism. Notice what went: "comprehensive",
 "empowers", "leverage", "harnessing", "fostering", "robust", the whether-you're
-opener, and the closing sentence that promised tools without naming one.
+opener and the closing sentence that promised tools without naming one.
 
 ### Cold email
 
@@ -215,7 +215,7 @@ work you'd pull them from the source or ask. Never fabricate.
 **After**
 > I spent four months on my first real program and most of it was wrong. The part
 > nobody tells you: that's the job. You write something broken, you find out how
-> it's broken, you fix that, and it breaks somewhere else.
+> it's broken, you fix that and it breaks somewhere else.
 >
 > The coding got easier. Being wrong all day never really did.
 
@@ -244,10 +244,10 @@ difference is that it commits to numbers and names instead of "progressing well"
 vocabulary rotates as models get tuned and as writers overcorrect. Treat the
 lists above as the current state, not a law.
 
-The durable signals are structural, and they're the ones worth internalizing:
+The durable signals are structural. They're the ones worth internalizing:
 
 - Sentences of uniform length and identical construction
-- Perfect symmetry across clauses, sentences, and sections
+- Perfect symmetry across clauses, sentences and sections
 - Every paragraph the same size
 - Claims pitched at a level of abstraction where nothing can be checked
 - A tone that's evenly enthusiastic about everything and commits to nothing
