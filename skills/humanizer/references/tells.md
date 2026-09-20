@@ -14,15 +14,15 @@ dense enough to sweep systematically. Contents:
 ## 1. Word swaps
 
 Left column out, right column in. The right column is a starting point, not a
-lookup table — the best replacement usually depends on the sentence, and
-sometimes the answer is to delete the word and rebuild the clause.
+lookup table. The best replacement depends on the sentence. Sometimes the
+answer is to delete the word and rebuild the clause.
 
 | Instead of | Write |
 |---|---|
 | delve into | dig into, study, go through |
 | tapestry, mosaic (figurative) | mix, range, or name the parts |
 | intricate | complicated, detailed, fiddly |
-| vibrant | busy, loud, crowded — or cut |
+| vibrant | busy, loud, crowded (or cut) |
 | journey (figurative) | path, process, or cut |
 | landscape, realm, sphere, space (figurative) | field, market, world, or name it |
 | harness, unlock, tap into | use, get at, open up |
@@ -33,7 +33,7 @@ sometimes the answer is to delete the word and rebuild the clause.
 | foster, cultivate | build, grow, encourage |
 | testament to | shows, proves |
 | dynamic (adjective) | fast-moving, shifting, or cut |
-| furthermore, moreover, additionally | also, and, plus — or start the sentence clean |
+| furthermore, moreover, additionally | also, and, plus (or start the sentence clean) |
 | pivotal, crucial, vital, key | important, or cut the intensifier |
 | seamless, frictionless | smooth, quick, invisible |
 | robust | solid, reliable, holds up |
@@ -61,7 +61,7 @@ sometimes the answer is to delete the word and rebuild the clause.
 | due to the fact that | because |
 | a wide range of | many, or name them |
 | it is important to note that | (delete) |
-| when it comes to | for, with, in — or restructure |
+| when it comes to | for, with, in (or restructure) |
 
 ## 2. Phrase deletions
 
@@ -158,7 +158,7 @@ After: (delete, and let the last real point close the piece)
 **Evenly weighted list-prose.**
 Before: *The system handles authentication. The system handles routing. The
 system handles logging.*
-After: *It does auth, routing and logging — three jobs that should probably live
+After: *It does auth, routing and logging. Three jobs that should probably live
 in three services.*
 
 ## 4. Worked examples across registers
@@ -231,7 +231,7 @@ work you'd pull them from the source or ask. Never fabricate.
 > Migration's about two-thirds done. Phase one shipped Tuesday, validation starts
 > this week.
 >
-> We hit a data consistency problem on the orders table — roughly 8,000 rows with
+> We hit a data consistency problem on the orders table. Roughly 8,000 rows have
 > timestamps that don't match the source. Priya's writing a reconciliation script.
 > It'll cost us maybe three days, not more.
 

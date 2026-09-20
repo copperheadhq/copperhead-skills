@@ -4,7 +4,7 @@
 
 A collection of Claude Code agent skills, one folder per skill under
 [skills/](skills/). [install.sh](install.sh) symlinks them into
-`~/.claude/skills/` so the repo is the single source of truth — a skill is never
+`~/.claude/skills/` so the repo is the single source of truth. A skill is never
 copied. There is no second version to drift.
 
 ## Layout
@@ -38,5 +38,5 @@ picks up the change. There is nothing to reinstall and no build step.
 ## After changing a skill
 
 Run `./install.sh --list` to confirm the link still resolves. If you rename a
-skill folder, the old symlink in `~/.claude/skills/` goes stale — delete it by
+skill folder, the old symlink in `~/.claude/skills/` goes stale. Delete it by
 hand and rerun `./install.sh`.

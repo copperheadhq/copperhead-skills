@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Rewrite or polish prose so it reads like a sharp human wrote it, stripping the vocabulary, rhythm and structural tics that mark text as machine-generated. Use this whenever the user shares a draft, rough notes, or bullet points and asks to humanize it, make it sound human, make it sound less like AI, strip the AI slop, polish it, punch it up, tighten it or edit it for voice. Also use it when they ask whether something "sounds AI", and when they hand over a blog post, README intro, LinkedIn or X post, newsletter, landing page, cover letter, proposal or email and want it to read better. Trigger even when the word "humanize" never appears — "make this less stiff", "rewrite this in my voice", and "can you clean this up" all belong here. Skip it for code, commit messages, and normative spec text, where flat precision is the point.
+description: Rewrite or polish prose so it reads like a sharp human wrote it, stripping the vocabulary, rhythm and structural tics that mark text as machine-generated. Use this whenever the user shares a draft, rough notes or bullet points and asks to humanize it, make it sound human, make it sound less like AI, strip the AI slop, polish it, punch it up, tighten it or edit it for voice. Also use it when they ask whether something "sounds AI", and when they hand over a blog post, README intro, LinkedIn or X post, newsletter, landing page, cover letter, proposal or email and want it to read better. Trigger even when the word "humanize" never appears: "make this less stiff", "rewrite this in my voice" and "can you clean this up" all belong here. Skip it for code, commit messages and normative spec text, where flat precision is the point.
 ---
 
 # Humanizer
@@ -25,7 +25,7 @@ want different registers. "Human" means something different in each of them. Bef
 rewriting, work out from the text itself:
 
 - Who reads this, and what do they already know?
-- Where does it land — inbox, docs site, timeline, pitch deck?
+- Where does it land: inbox, docs site, timeline, pitch deck?
 - How much personality is the writer allowed? A postmortem can be dry and still
   sound human. A newsletter can't.
 
@@ -67,7 +67,7 @@ spikes, the queue backs up. When the queue backs up, latency climbs.") Vary the
 frame or merge them.
 
 **The rule of three.** Three adjectives, three clauses, three bullets. Models
-reach for triads to sound thorough. Use two, or four, or one — whatever the
+reach for triads to sound thorough. Use two. Use four. Use one. Whatever the
 content actually supports. Same for numbered lists: don't default to a tidy
 three-part structure unless three things genuinely exist.
 
@@ -85,7 +85,7 @@ considered". Either name the source or cut the claim.
 sentence to add an upside: "..., ensuring seamless integration", "..., allowing
 teams to move faster", "..., making it easier to scale". This is one of the
 loudest tells there is, and drafts are usually thick with it. The clause almost
-never carries real information — it restates the sentence as a benefit. Cut it,
+never carries real information. It restates the sentence as a benefit. Cut it,
 or promote it to its own sentence with a subject that does something.
 
 **Colon splices.** "The result: faster builds." "One catch: it needs Postgres
@@ -101,7 +101,7 @@ claim you actually believe and make it.
 naming anything. Name the two real endpoints or cut the construction.
 
 **Rhetorical question openers.** "So what does this actually mean?" "Why does
-this matter?" The question is fake — the writer already knows. Answer it
+this matter?" The question is fake. The writer already knows. Answer it
 without asking it.
 
 **Corporate "we".** A plural that has no referent: "we believe", "we've seen
@@ -130,8 +130,8 @@ variation become its own pattern.
 team". Passive earns its place when the actor is unknown or irrelevant.
 
 **Contractions, naturally.** Don't, it's, you'll, we've. Use them the way speech
-does, not on every possible occasion — a full "do not" lands harder in the one
-spot you want emphasis.
+does, rather than on every possible occasion. A full "do not" lands harder in
+the one spot you want emphasis.
 
 **Speak to the reader as "you".** Second person collapses the distance a draft
 usually has.
@@ -143,7 +143,7 @@ One sentence per paragraph is a real tool. Use it sparingly.
 **Concrete over abstract.** Swap the generic claim for the specific instance.
 "Improves performance" tells the reader nothing. "Cuts the p99 from 400ms to
 60ms" tells them everything. Where the source has a real detail, surface it.
-Where it doesn't, don't invent one — just make the abstraction smaller.
+Where it doesn't, don't invent one. Just make the abstraction smaller.
 
 **Precise words, not ornate ones.** There's a difference between an uncommon word
 that's exact (gasket, clawback, bevel, hedge) and an uncommon word that's
@@ -167,7 +167,7 @@ effort shows. When in doubt, add one sprinkle and stop.
 **Specifics with no job to do.** A Tuesday. The 4:15. Priya. The second-floor
 printer. Detail that isn't load-bearing is the strongest human signal there is,
 because a machine generalizes and a person remembers. Mine the source for these
-and promote them — never invent one.
+and promote them. Never invent one.
 
 **Admit what you don't know.** "We never found the root cause." "Probably the
 DNS change, but I can't prove it." Models are evenly confident about
@@ -246,15 +246,35 @@ their actual tics. The way they open. Whether they swear. Whether they use
 semicolons. A real habit lifted from their prose beats every generic move on
 this page, because it's theirs and the reader who knows them will feel it.
 
-`references/sprinkles.md` has each move worked as a before/after if you want to
-see one land.
+`references/sprinkles.md` works each move as a before/after if you want to see
+one land. `references/examples.md` carries ten whole pieces through all three
+passes, by register: LinkedIn post, release notes, postmortem, docs, cover
+letter, landing page, PR description, talk abstract, newsletter and investor
+update. Read the one closest to what you're rewriting.
 
 ## Punctuation and formatting
 
-**Em dashes.** The tell isn't frequency, it's function. Humans use them for a
-sharp aside or an interruption. Models use them to bolt an explanation onto a
-sentence they didn't want to split. Cap it at roughly one every few paragraphs.
-Each one should read like a swerve rather than a seam.
+**Em dashes. Default to not using one.** Reach for a period, a colon, a comma
+or a pair of parentheses instead. The sentence almost always improves.
+
+The honest version of the evidence: em dashes are not statistically a machine
+trait. GPT-4.1 runs about 10.6 per thousand words. Twain ran 10.1 in Huck Finn.
+The mark is innocent.
+
+It doesn't matter. Enough readers now treat the em dash as proof a model wrote
+the text that the perception is the problem, whatever the counts say. Editors
+strip them from client work for exactly this reason. You're writing for those
+readers, so write without it.
+
+There's a real craft difference underneath the perception, and it explains why
+so many model em dashes read badly. A person uses one to interrupt themselves,
+to swerve. A model uses one to weld an explanation onto a sentence it didn't
+want to split. If you find yourself reaching for an em dash, you have usually
+found a sentence that wanted to be two.
+
+Keep one only when the interruption genuinely is the effect you want, and then
+keep it to one in a piece. If the writer's own prose is full of them, that's
+their voice and it stays.
 
 **How few commas you need.** This separates a model's cadence from a
 person's. It matters more than the rest of this section.
@@ -313,8 +333,8 @@ in sentence case.
 
 **Lists.** A list is right when the items are genuinely parallel and the reader
 will scan for one. It's wrong when it's just prose with the connective tissue
-ripped out. Tables and diagrams earn their place the same way — when the shape
-of the data is the point.
+ripped out. Tables and diagrams earn their place the same way. The shape
+of the data has to be the point.
 
 **Emoji and exclamation marks.** Default off. They read as a tone costume.
 
@@ -329,7 +349,7 @@ paragraph is empty enough that it needs new material, cut it and flag the gap
 after the output.
 
 Don't strip technical precision to sound casual. In engineering writing, the
-exact term is the human choice — "idempotent" isn't jargon to the audience that
+exact term is the human choice. "Idempotent" isn't jargon to the audience that
 needs it. Loosen the connective tissue around the precise words, not the words
 themselves.
 
@@ -342,15 +362,51 @@ rewrite the construction rather than shuffling its words.
 Match the writer's existing voice when there's enough of it to read. Prior work
 from the same person beats any generic idea of "human".
 
+## Audit the result
+
+`scripts/audit.py` checks the mechanical rules so you don't have to eyeball
+them. Run it on every rewrite of more than a paragraph or two. It reads the ban
+list straight out of this file, so the two can never drift apart.
+
+```bash
+python3 scripts/audit.py after.txt --before draft.txt
+```
+
+Write both versions to files first. Pass `--before` whenever you have the
+original, since the deltas are the interesting part: words down 29%, banned
+words 6 to 0, em dashes 1 to 0. Drop `--before` to check a single piece.
+
+It reports four blocks. **Shape** covers length, sentence-length variation and
+a rhythm sparkline, and its verdict line is the one to read first: a FLAT
+warning means the sentences are too uniform, which matters more than any word
+on the ban list. **Hard rules** is banned words, em dashes, Oxford commas,
+comma splices and typographic artifacts, all of which should read 0. **Soft
+findings** are things to look at rather than fix on sight. **Human signals**
+tracks contraction density.
+
+Other flags: `--strict` exits nonzero when a hard rule is still broken, which
+is what you want if you ever wire this into a commit hook. `--json` gives the
+raw numbers. `-` reads stdin.
+
+The script cannot tell you whether the writing is any good. It counts things.
+A piece can pass every check and still be lifeless, so the audit never replaces
+the read-it-aloud pass below.
+
 ## Output
 
-Give the polished text and nothing else. No preamble, no "here's the revised
-version", no bullet list of what you changed. The text is the deliverable.
+Give the polished text first, with no preamble and no "here's the revised
+version" in front of it. The text is the deliverable and it leads.
 
-Two exceptions:
+After the text, in this order:
 
-Facts you had to flag — a gap, a claim that looked wrong, an invented-sounding
-number in the source — go in one short line *after* the text.
+The audit report, if you ran one. Paste the `Shape` and `Hard rules` blocks at
+minimum. Someone who asked for a rewrite wants to see that the em dash count is
+zero, and the word-count delta tells them what they lost.
+
+Then two exceptions to the no-commentary rule:
+
+Flag anything you had to leave alone in one short line *after* the text: a gap,
+a claim that looked wrong, an invented-sounding number in the source.
 
 Length: match the original unless told otherwise. Humanizing usually trims 10–25%
 because the padding was the problem. That's fine. A rewrite that comes back
@@ -365,26 +421,22 @@ the pattern. A full rewrite hides it.
 
 ## Before you hand it back
 
-Read it as the intended reader, not as the editor. Then check:
+Two passes. The script counts, you read.
+
+Run `scripts/audit.py` first. It catches every countable rule faster and more
+reliably than you will: banned words, em dashes, serial commas, comma budget,
+trailing -ing clauses, typographic artifacts, sentence-length variation. Fix
+what it flags before reading anything.
+
+Then read it as the intended reader, for the things no script can measure:
 
 - Read the first sentences of each paragraph in sequence. Do they all sound
-  alike? That's the symmetry tell surviving.
-- Count the sentence lengths in the longest paragraph. If they're clustered,
-  break one and stretch another.
-- Search your own output for the banned list. Models reintroduce them while
-  fixing something else.
-- Search for ", ensuring", ", allowing", ", making it" and any other comma plus
-  "-ing" that adds a benefit. That construction survives rewrites more than
-  anything else on this page.
-- Count commas per sentence. Any sentence with three is chaining statements
-  that wanted to be separate sentences.
-- Scan for serial commas before a final and or or. They creep back in.
-- Scan for curly quotes, curly apostrophes and the ellipsis character. They
-  travel invisibly through a rewrite and land in the paste.
+  alike? That's the symmetry tell surviving, and the audit won't see it.
 - Would a thoughtful person say this out loud to a colleague? If a sentence
   would sound absurd spoken, it's still machine prose.
-- Is any claim in your version absent from the source? Remove it.
+- Does every claim trace back to the source? Anything you can't point at, you
+  invented. It comes out.
 - Count the sprinkles in any 500-word stretch against the dosage table. Over
   budget reads as trying too hard, which is its own tell.
-- Check that every concrete detail you added traces back to the source. If you
-  can't point at where it came from, you invented it.
+- Could anyone else have written this about a different company or person
+  without changing a word? Then the specifics are still missing.

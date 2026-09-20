@@ -14,6 +14,24 @@ and pulls the rest in when the task matches.
 | --- | --- |
 | [humanizer](skills/humanizer/) | Rewrites prose so it stops reading like a machine wrote it. Three passes: cut the stock vocabulary and the stock shapes, put the rhythm back, then add the small human moves that make a page feel written rather than generated. |
 
+### Auditing a rewrite
+
+The humanizer ships a checker. It reads the ban list out of `SKILL.md`, so the
+rules and the tool can't drift apart.
+
+```bash
+python3 skills/humanizer/scripts/audit.py after.txt --before draft.txt
+```
+
+It reports word-count delta, sentence-length variation with a rhythm sparkline,
+and counts for banned words, em dashes, serial commas, comma splices, trailing
+-ing clauses and typographic artifacts. `--strict` exits nonzero when a hard
+rule is still broken, which makes it usable in a commit hook. `--json` gives
+the raw numbers and `-` reads stdin.
+
+Pointing it at the skill's own files is not meaningful. `SKILL.md` contains the
+ban list, so it reports every banned word as present.
+
 ## Install
 
 ```bash
@@ -23,7 +41,7 @@ cd copperhead-skills
 ```
 
 That symlinks every skill into `~/.claude/skills/`. Symlinks and not copies, so
-editing a skill here takes effect on the next Claude Code turn — no reinstall
+editing a skill here takes effect on the next Claude Code turn. No reinstall
 step to forget.
 
 Link one skill instead of all of them:
